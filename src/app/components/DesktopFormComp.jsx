@@ -12,13 +12,14 @@ import "../phone.css";
 function DesktopForm({ formName, setLoad, loc }) {
   const router = useRouter();
 
+
   const initState = {
     name: "",
     email: "",
     phone: "",
 
     note: "",
-    formName,
+    formName:formName,
   };
 
   const [formData, setFormData] = useState(initState);
@@ -91,6 +92,9 @@ function DesktopForm({ formName, setLoad, loc }) {
     try {
       let doc = await addForm(obj);
       // console.log("dov", obj);
+      if(doc?.ok){
+        setFormData(initState);
+      }
       setLoad(false);
     } catch (error) {
       console.error("Error while submitting form", error);
@@ -118,6 +122,7 @@ function DesktopForm({ formName, setLoad, loc }) {
             onChange={(e) => handleChange(e)}
             required
             aria-label="Name"
+            value={formData.name}
           />
 
           <input
@@ -130,6 +135,7 @@ function DesktopForm({ formName, setLoad, loc }) {
             onChange={(e) => handleChange(e)}
             required
             aria-label="Email"
+            value={formData.email}
           />
 
           <div className="flex w-full tel-container" id="phoneField">
@@ -176,6 +182,7 @@ function DesktopForm({ formName, setLoad, loc }) {
               autoComplete={"tel"}
               onChange={(e) => handleChange(e)}
               required
+              value={formData.phone}
             />
           </div>
         </div>
