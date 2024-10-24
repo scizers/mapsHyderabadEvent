@@ -127,7 +127,7 @@ export default function MobilePopup() {
               </a>
             </div>
             {isThankYouVisible && (
-              <div className="border-2 border-green-500 bg-white  p-3 mb-1 rounded-sm text-center">
+              <div className="border-2 border-green-500 bg-white  mt-1  p-2 mb-1  rounded-sm text-center">
                 <h2 className="text-xl  text-green-400">Thank you! Our team will reach out to you soon.</h2>
               </div>
             )}
