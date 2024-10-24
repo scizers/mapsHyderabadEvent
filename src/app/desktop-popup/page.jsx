@@ -135,7 +135,7 @@ export default function DesktopPopup() {
           <div className=" w-[70%] pt-5 ">
             <DesktopFormComp formName={"popupForm"} setLoad={setLoad} onSuccess2={showThankYouPopup}/>
           </div>
-          <div className={"whatsAppIcon pb-4"}>
+          <div className={"whatsAppIcon pb-3"}>
             <a id={"waLink"} href="#" rel={"nofollow"}>
               <Image
                 quality={100}
@@ -146,6 +146,11 @@ export default function DesktopPopup() {
               />
             </a>
           </div>
+          {isThankYouVisible && (
+              <div className="border-2 border-green-500 bg-white p-3 mb-3 rounded-sm text-center">
+                <h2 className="text-xl  text-green-400">Thank you! Our team will reach out to you soon.</h2>
+              </div>
+            )}
           <div className=" text-left  bg-[#E8D8CB] w-full py-6 rounded-b-[8px]">
             <label
               className={`block cursor-pointer btn ${load && "opacity-50 "}`}
@@ -156,7 +161,7 @@ export default function DesktopPopup() {
           </div>
         </div>
       </div>
-      {isThankYouVisible && <ThankYouPopup closePopup={closeThankYouPopup} />}
+      {/* {isThankYouVisible && <ThankYouPopup closePopup={closeThankYouPopup} />} */}
     </div>
   );
 }
