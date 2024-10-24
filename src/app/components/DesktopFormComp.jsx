@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import {
@@ -9,7 +10,9 @@ import {
 import PhoneInput from "react-phone-input-2";
 import "../phone.css";
 
-function DesktopForm({ formName, setLoad, loc }) {
+function DesktopForm({ formName, setLoad, onSuccess2 , loc }) {
+
+  
   const router = useRouter();
 
 
@@ -94,6 +97,7 @@ function DesktopForm({ formName, setLoad, loc }) {
       // console.log("dov", obj);
       if(doc?.ok){
         setFormData(initState);
+         onSuccess2();
       }
       setLoad(false);
     } catch (error) {

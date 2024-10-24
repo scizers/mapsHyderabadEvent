@@ -5,8 +5,19 @@ import desktopHero from "../../../public/desktopHero.png";
 import WAIMG from "../../../public/whatsapp.png";
 import DesktopFormComp from "../components/DesktopFormComp";
 import { useState } from "react";
+import ThankYouPopup from "../components/Thankyou";
 
 export default function DesktopPopup() {
+  const [isThankYouVisible, setIsThankYouVisible] = useState(false);
+
+  const showThankYouPopup = () => {
+    setIsThankYouVisible(true);
+  };
+
+  const closeThankYouPopup = () => {
+    setIsThankYouVisible(false);
+  };
+
   const router = useRouter();
   const [load, setLoad] = useState(false);
 
@@ -122,7 +133,7 @@ export default function DesktopPopup() {
           </div>
 
           <div className=" w-[70%] pt-5 ">
-            <DesktopFormComp formName={"popupForm"} setLoad={setLoad} />
+            <DesktopFormComp formName={"popupForm"} setLoad={setLoad} onSuccess2={showThankYouPopup}/>
           </div>
           <div className={"whatsAppIcon pb-4"}>
             <a id={"waLink"} href="#" rel={"nofollow"}>
@@ -145,6 +156,7 @@ export default function DesktopPopup() {
           </div>
         </div>
       </div>
+      {isThankYouVisible && <ThankYouPopup closePopup={closeThankYouPopup} />}
     </div>
   );
 }
