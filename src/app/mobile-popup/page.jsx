@@ -126,6 +126,11 @@ export default function MobilePopup() {
                 />
               </a>
             </div>
+            {isThankYouVisible && (
+              <div className="border-2 border-green-500 bg-white  p-3 mb-1 rounded-sm text-center">
+                <h2 className="text-xl  text-green-400">Thank you! Our team will reach out to you soon.</h2>
+              </div>
+            )}
           </div>
 
           <div className=" text-left bg-[#E8D8CB] w-full py-8">
@@ -140,7 +145,7 @@ export default function MobilePopup() {
           </div>
         </div>
       </div>
-      {isThankYouVisible && <ThankYouPopup closePopup={closeThankYouPopup} />}
+      {/* {isThankYouVisible && <ThankYouPopup closePopup={closeThankYouPopup} />} */}
     </div>
   );
 }
