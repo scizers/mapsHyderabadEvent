@@ -1,6 +1,5 @@
 "use client"; // Add this at the top
-import { useState, useEffect } from "react";
-import ThankYouPopup from "../components/Thankyou";
+import { useEffect } from "react";
 import Footer from "../components/Footer";
 import DesktopHero from "../components/DesktopHero";
 import DesktopGallery from "../components/DesktopGallery";
@@ -8,7 +7,6 @@ import DesktopFormSection from "../components/DesktopFormSection";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const [isThankYouVisible, setIsThankYouVisible] = useState(false);
   const router = useRouter();
   function getCookieValue(name) {
     const cookieString = document.cookie;
@@ -32,22 +30,13 @@ export default function Home() {
     }
   }, [router]);
 
-  const showThankYouPopup = () => {
-    setIsThankYouVisible(true);
-  };
-
-  const closeThankYouPopup = () => {
-    setIsThankYouVisible(false);
-  };
-
   return (
     <div>
       <main className="mx-auto">
-        <DesktopHero showThankYouPopup={showThankYouPopup} />
+        <DesktopHero  />
         <DesktopGallery />
-        <DesktopFormSection showThankYouPopup={showThankYouPopup} />
+        <DesktopFormSection/>
 
-        {isThankYouVisible && <ThankYouPopup closePopup={closeThankYouPopup} />}
 
         <Footer />
       </main>
